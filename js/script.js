@@ -37,10 +37,10 @@ $(document).ready(function() {
 	}
 
 	// DEBUT BOUTON-MENU SMARTPHONE
+	hauteurSection = $(window).height();
+	hauteurHeader = $('header').height();	
 	$(".bouton-menu").click(function() {
-		hauteurSection = $(window).height();
-		hauteurHeader = $('header').height();
-
+		
 		$(this).toggleClass("croix"); //le bouton menu prend la class "croix" si il ne l'a pas, l'enleve si il l'a
 		$("nav").toggleClass("menu-phone"); ////la liste prend la class "menu-phone" si elle ne l'a pas, l'enleve si elle l'a
 		$("nav").css({
