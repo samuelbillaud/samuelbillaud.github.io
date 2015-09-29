@@ -37,7 +37,7 @@ $(document).ready(function() {
 	}
 
 	// DEBUT BOUTON-MENU SMARTPHONE
-	$(document).on('click', '.bouton-menu', function (e) {
+	$(".bouton-menu").click(function() {
 		hauteurSection = $(window).height();
 		hauteurHeader = $('header').height();
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	$(document).on('click', 'nav ul li a', function (e) {
+	$("nav ul li a").click(function() {
 		if ($("nav").hasClass("menu-phone")) { //si la liste a la classe menu-phone cela veut dire que le menu est en mode smartphone et donc qu'il faut le faire disparaitre en cliquant sur le lien d'une section, sinon c'est qu'il est en mode ordinateur et dans ce cas il ne bouge pas lorsque l'on clique sur un lien
 			$(".bouton-menu").toggleClass("croix");
 			$("nav").animate({ // le menu disparait en remontant
