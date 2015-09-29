@@ -38,7 +38,8 @@ $(document).ready(function() {
 
 	// DEBUT BOUTON-MENU SMARTPHONE
 	hauteurSection = $(window).height();
-	hauteurHeader = $('header').height();	
+	hauteurHeader = $('header').height();
+	
 	$(".bouton-menu").click(function() {
 		
 		$(this).toggleClass("croix"); //le bouton menu prend la class "croix" si il ne l'a pas, l'enleve si il l'a
