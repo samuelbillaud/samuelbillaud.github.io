@@ -648,7 +648,7 @@ DEBUT ANIMATION LOAD
 
 .cd-cover-layer div {
   position: absolute;
-  top: 100px;
+  top: 150px;
   right: 0;
   left: 0;
   height: 0;
@@ -657,14 +657,14 @@ DEBUT ANIMATION LOAD
 }
 
 .cd-cover-layer h3 {
-  font-size: 1.8em;
-	color: #14c090;
-	margin: 0;
+  font-size:2.5em;
+  color: #14c090;
+  margin: 0;
   animation: 0s linear loadEnd 3s forwards;
 }
 
 .cd-cover-layer h4 {
-	font-size: .9em;
+	font-size: 1em;
   animation: 0s linear loadEnd 3s forwards;
 }
 
