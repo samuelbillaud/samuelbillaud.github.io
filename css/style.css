@@ -46,7 +46,7 @@ h3::first-letter {
 	text-transform: uppercase;
 }
 
-.apropos, .realisations, .contact {
+.competences, .realisations, .contact {
 	padding: 70px 0 40px;
 }
 /*---------
@@ -221,12 +221,12 @@ FIN ACCUEIL
 /*------------
 DEBUT A PROPOS						
 ------------*/
-.apropos {
+.competences {
 	background-color: #14c090;
 	z-index: 1;
 }
 
-.apropos p + p {
+.competences p + p {
 	text-align: center;
 	width: 80%;
 	margin: 0 auto;
@@ -236,7 +236,7 @@ DEBUT A PROPOS
 	color: black;
 }
 
-.apropos p:nth-child(1n+5) {
+.competences p:nth-child(1n+5) {
 	margin-bottom: 30px;
 }
 
