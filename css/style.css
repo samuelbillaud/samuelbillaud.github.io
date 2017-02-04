@@ -657,14 +657,14 @@ DEBUT ANIMATION LOAD
 }
 
 .cd-cover-layer h3 {
-  font-size:2.5em;
+  font-size:2.8em;
   color: #14c090;
   margin: 0;
   animation: 0s linear loadEnd 3s forwards;
 }
 
 .cd-cover-layer h4 {
-	font-size: 1em;
+	font-size: 1.5em;
   animation: 0s linear loadEnd 3s forwards;
 }
 
