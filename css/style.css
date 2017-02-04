@@ -593,13 +593,14 @@ DEBUT ANIMATION LOAD
   -ms-transform: translateX(-50%) translateY(-50%);
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  animation: 0s linear loadEnd 3s forwards;
 }
 
 .cd-loading-bar div {
-  animation: 3s linear load;
   width: 100%;
   height: 100%;
   background: #fff;
+  animation: 3s linear load;
 }
 
 .cd-cover-layer {
@@ -622,7 +623,7 @@ DEBUT ANIMATION LOAD
   -webkit-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
   -moz-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
   transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
-  animation: .5s linear loadEnd 3s forwards;
+  animation: .5s linear loadingBarEnd 3s forwards;
 }
 
 @keyframes load {
@@ -634,9 +635,18 @@ DEBUT ANIMATION LOAD
   }
 }
 
-@keyframes loadEnd {
+@keyframes loadingBarEnd {
   from {
     height: 100%;
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes loadEnd {
+  from {
+    height: 2px;
   }
   to {
     height: 0;
