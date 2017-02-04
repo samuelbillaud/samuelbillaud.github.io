@@ -567,6 +567,15 @@ FIN RESPONSIVE
 /*------------
 DEBUT ANIMATION LOAD						
 ------------*/
+.cd-about {
+  background: #14c090;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  color: #fff;
+}
+
 .cd-loading-bar {
   /* this is the loding bar - visible while switching from one page to the following one */
   position: fixed;
@@ -632,6 +641,9 @@ DEBUT ANIMATION LOAD
   animation: 0s linear loadEnd 3s forwards;
   position: absolute;
   top: 7px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .cd-cover-layer div {
@@ -642,7 +654,6 @@ DEBUT ANIMATION LOAD
   height: 0;
   margin: auto;
   text-align: center;
-  letter-spacing: 2px;
 }
 
 .cd-cover-layer h3 {
@@ -680,4 +691,4 @@ DEBUT ANIMATION LOAD
     height: 0;
     opacity: 0;
   }
-} 
+}
