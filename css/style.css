@@ -636,7 +636,7 @@ DEBUT ANIMATION LOAD
 
 .cd-cover-layer div {
   position: absolute;
-  bottom: 100px;
+  top: 100px;
   right: 0;
   left: 0;
   height: 0;
