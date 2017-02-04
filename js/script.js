@@ -202,9 +202,10 @@ $(document).ready(function() {
 			parallaxAccueil();
 		}
 	});
+});
 
-	$('.wrapper').load(function() {
-		/* Act on the event */
-		console.log('load');
-	});
+$('.wrapper').load(function() {
+	/* Act on the event */
+	console.log('load');
+	$('.wrapper').addClass('load');
 });
