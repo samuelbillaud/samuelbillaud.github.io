@@ -624,6 +624,37 @@ DEBUT ANIMATION LOAD
   -moz-transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
   transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
   animation: .5s linear loadingBarEnd 3s forwards;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cd-cover-layer img {
+  animation: 0s linear loadEnd 3s forwards;
+  position: absolute;
+  top: 7px;
+}
+
+.cd-cover-layer div {
+  position: absolute;
+  bottom: 100px;
+  right: 0;
+  left: 0;
+  height: 0;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.cd-cover-layer h3 {
+  font-size: 1.8em;
+	color: #14c090;
+	margin: 0;
+  animation: 0s linear loadEnd 3s forwards;
+}
+
+.cd-cover-layer h4 {
+	font-size: .9em;
+  animation: 0s linear loadEnd 3s forwards;
 }
 
 @keyframes load {
@@ -636,12 +667,8 @@ DEBUT ANIMATION LOAD
 }
 
 @keyframes loadingBarEnd {
-  from {
-    opacity: 1;
-  }
   to {
-	height: 0;
-    opacity: 0;
+    height: 0;
   }
 }
 
@@ -651,5 +678,6 @@ DEBUT ANIMATION LOAD
   }
   to {
     height: 0;
+    opacity: 0;
   }
-}
+} 
