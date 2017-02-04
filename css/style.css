@@ -637,10 +637,10 @@ DEBUT ANIMATION LOAD
 
 @keyframes loadingBarEnd {
   from {
-    height: 100%;
+    opacity: 1;
   }
   to {
-    height: 0;
+    opacity: 0;
   }
 }
 
