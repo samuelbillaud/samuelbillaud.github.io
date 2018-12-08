@@ -445,14 +445,13 @@ DEBUT CONTACT
 	padding: 0 5px;
 }
 
-.contact ul li a i {
-	color: white;
-	font-size: 3.1em;
+.contact ul li a svg {
+	fill: white;
+	width: 2.2rem;
 }
 
-.contact ul li a:hover i {
-	color: #14c090;
-	margin-bottom: 20px;
+.contact ul li a:hover svg {
+	fill: #14c090;
 }
 
 
