@@ -180,9 +180,3 @@ $(document).ready(function() {
 		}
 	});
 });
-
-$('.wrapper').load(function() {
-	/* Act on the event */
-	console.log('load');
-	$('.wrapper').addClass('load');
-});
