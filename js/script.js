@@ -1,12 +1,4 @@
 $(document).ready(function() {
-	//DEBUT ADRESSE MAIL
-	var nameMail = 'samuel.billaud';
-	var year = 1990;
-	var domain = 'gmail.com';
-	var adresseMail = 'mailto:' + nameMail + year + '@' + domain;
-	$('.mail').attr('href', adresseMail);
-	//FIN ADRESSE MAIL
-
     const home = document.querySelector('.accueil a');
     const menuItems = document.querySelectorAll('nav ul li a');
     const elementToScroll = [home, ...menuItems];
