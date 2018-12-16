@@ -13,23 +13,6 @@ $(document).ready(function() {
     });
 	//FIN SCROLL PAGE
 
-	//FONCTION METTRE UNE SECTION ACTIVE
-	function activeSection() {
-		var positionFenetre = $(window).scrollTop(); //calculer la position de la fenetre	
-		if(positionFenetre >= 20) { //si la position de la fenetre est supérieur à 20px alors on compare sa taille avec la position de toute les sections
-			$('.wrapper section').each(function(i) { // pour chaque section...
-				if ($(this).position().top <= positionFenetre + 30) { //si la position de la section est inférieur ou égale à la taille de la fenetre
-					$('nav ul li a.active').removeClass('active'); //on retire la class active du lien qui l'avait 
-					$('nav ul li a').eq(i).addClass('active'); //on attribue au lien de la section (index i) dont la position était inférieur à la taille de la fenetre la class active
-				}
-			});
-		}
-		else {
-			$('nav ul li a.active').removeClass('active'); //on retire la class active du lien qui l'avait			
-			$('nav ul li a:first').addClass('active'); //on met la class active sur le premier lien
-		}
-	}
-
 	// DEBUT BOUTON-MENU SMARTPHONE
 	hauteurSection = $(window).height();
 	hauteurHeader = $('header').height();
