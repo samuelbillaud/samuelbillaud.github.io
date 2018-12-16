@@ -7,16 +7,18 @@ $(document).ready(function() {
 	$('.mail').attr('href', adresseMail);
 	//FIN ADRESSE MAIL
 
-	//DEBUT SCROLL PAGE 
-	$(document).on('click', 'nav ul li a, .accueil a', function (e) {
-		e.preventDefault();
-		var nameAnchor = $(this).attr('data-menuanchor'); //obtenir la valeur de l'attribut data-menuanchor pour chaque lien du menu //exemples: accueil, apropos...
-		var positionAnchor = $('section[data-anchor="'+nameAnchor+'"]').offset().top; //obtenir la position du début de chaque section grâce à l'attribut data-anchor qui est le meme que data-menuanchor // exemple: realisations, position : 1030px
-		$('html, body').animate({ //se déplacer jusqu'à la section souhaitée grâce a scrollTop qui connait la position de la section souhaitée(positionAnchor)
-			scrollTop: positionAnchor },
-			1600, 'easeOutQuart');
-		return false;
-	});
+    const home = document.querySelector('.accueil a');
+    const menuItems = document.querySelectorAll('nav ul li a');
+    const elementToScroll = [home, ...menuItems];
+
+    elementToScroll.forEach(element => {
+        const anchorName = element.getAttribute("data-menuanchor");
+        element.addEventListener('click', event => {
+            event.preventDefault();
+            document.querySelector(`section[data-anchor="${anchorName}"]`)
+                .scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        });
+    });
 	//FIN SCROLL PAGE
 
 	//FONCTION METTRE UNE SECTION ACTIVE
