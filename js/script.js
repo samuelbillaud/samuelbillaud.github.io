@@ -1,7 +1,8 @@
 $(document).ready(function() {
-    const home = document.querySelector('.accueil a');
+    const home = document.querySelector('.accueil');
+    const homeLink = document.querySelector('.accueil a');
     const menuItems = document.querySelectorAll('nav ul li a');
-    const elementToScroll = [home, ...menuItems];
+    const elementToScroll = [homeLink, ...menuItems];
 
     elementToScroll.forEach(element => {
         const anchorName = element.getAttribute("data-menuanchor");
@@ -34,17 +35,12 @@ $(document).ready(function() {
     //FIN BOUTON-MENU SMARTPHONE
 
 	//DEBUT PARALLAX SECTION ACCUEIL
-	function parallaxAccueil() {
-		var positionScroll = $(this).scrollTop();
-		$('.accueil').css({
-			'background-position':'40%' - (positionScroll/4)+"px"
-		});
-
-		$('.presentation').css({
-			'opacity': 1-(positionScroll/200)
-		});
-	}
-	//FIN PARALLAX SECTION ACCUEIL
+	const parallaxHome = () => {
+        const scrollYPosition = window.scrollY;
+        home.style.backgroundPosition = `40%` - `${scrollYPosition / 4}px`;
+        document.querySelector('.presentation').style.opacity = 1 - (scrollYPosition / 200);
+    }
+    //FIN PARALLAX SECTION ACCUEIL
 
 	//DEBUT HAUTEUR REALISATIONS
 	function appliquerHauteur() {
@@ -93,12 +89,11 @@ $(document).ready(function() {
 	$(window).scroll(function() {
 		var aproposcompetences = $(".aproposcompetences");
 		var accueilparallax = $(".accueilparallax");
-		
 		appliquerHauteur();
 		positionMenu();
 
 		if(accueilparallax.hasClass("active")) {
-			parallaxAccueil();
+            parallaxHome();
 		}
 	});
 });
