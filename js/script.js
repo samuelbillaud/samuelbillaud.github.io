@@ -33,22 +33,6 @@ $(document).ready(function() {
     });
     //FIN BOUTON-MENU SMARTPHONE
 
-	//DEBUT SLIDER REALISATIONS
-	var largeur_li = $(".visuel-projet-img ul li").width;
-
-	function slider_realisations() {
-		$(".visuel-projet-img ul").each(function(i) {
-			$(this).animate({
-				left: - largeur_li
-			}, 300, function () {
-				$(this).find('li:first-child').appendTo(this);
-				$(this).css('left', '');
-			});
-		});
-	}
-	setInterval(slider_realisations, 5000);
-	//FIN SLIDER REALISATIONS
-
 	//DEBUT COMPETENCES
 		//CALCUL POUR QUE LA LARGEUR DES SPAN SOIT EGALE A LA LARGEUR DE L'ELEMENT BARRES
 	var largeur_barres = $(".barres").css("width");
