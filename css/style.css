@@ -65,16 +65,25 @@ header {
 	width: 100%;
 }
 
-header nav {
-	display: none;
+header nav.menu {
 	position: absolute;
 	top: 100%;
-	left: 0;
+	right: 100%;
 	bottom: 0;
 	width: 100%;
 /*	height: JS; */ 
 	z-index: 1;
 	background-color: #ececec;
+    transition: all 0.7s;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    -ms-transition: all 0.7s;
+}
+
+header nav.menu-phone {
+    width: 100%;
+    right: 0;
 }
 
 header nav ul {

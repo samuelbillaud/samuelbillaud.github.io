@@ -13,24 +13,16 @@ $(document).ready(function() {
     });
 	//FIN SCROLL PAGE
 
-	// DEBUT BOUTON-MENU SMARTPHONE
-	hauteurSection = $(window).height();
-	hauteurHeader = $('header').height();
-	
-	$(".bouton-menu").click(function() {
-		
-		$(this).toggleClass("croix"); //le bouton menu prend la class "croix" si il ne l'a pas, l'enleve si il l'a
-		$("nav").toggleClass("menu-phone"); ////la liste prend la class "menu-phone" si elle ne l'a pas, l'enleve si elle l'a
-		$("nav").css({
-			'height' : hauteurSection + "px"
-		});
-		$("nav").animate({ //le menu apparait avec un mouvement descendant ou inversement quand il disparait
-							width: "toggle"
-							}, 350, function() {
-							// Animation complete.
-		});
-	});
-	
+    // DEBUT BOUTON-MENU SMARTPHONE
+    const buttonMenu = document.querySelector('.bouton-menu');
+    const menuContainer = document.querySelector('.menu');
+
+    buttonMenu.addEventListener('click', () => {
+        buttonMenu.classList.toggle('croix');
+        menuContainer.classList.toggle('menu-phone');
+        menuContainer.style.height = `${window.innerHeight}px`;
+    });
+
 	$("nav ul li a").click(function() {
 		if ($("nav").hasClass("menu-phone")) { //si la liste a la classe menu-phone cela veut dire que le menu est en mode smartphone et donc qu'il faut le faire disparaitre en cliquant sur le lien d'une section, sinon c'est qu'il est en mode ordinateur et dans ce cas il ne bouge pas lorsque l'on clique sur un lien
 			$(".bouton-menu").toggleClass("croix");
@@ -169,7 +161,7 @@ $(document).ready(function() {
 		
 		appliquerHauteur();
 		positionMenu();
-		activeSection();
+		// activeSection();
 
 		if(aproposcompetences.hasClass("active")) {
 			chargementCompetences();
