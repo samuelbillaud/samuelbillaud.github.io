@@ -43,22 +43,16 @@ $(document).ready(function() {
     //FIN PARALLAX SECTION ACCUEIL
 
 	//DEBUT HAUTEUR REALISATIONS
-	function appliquerHauteur() {
-		var visuelProjet = $(".visuel-projet");
-		var listeProjet = $(".realisations ul li");
-		var largeur = $(visuelProjet).width(); //recuperer la largeur de la div visuel-projet grace a la class
-
-		var pourcentage = 69.6;
-		var hauteur = (largeur * pourcentage) / 100; //calculer la hauteur par rapport a la largeur : 69.6%	
-		
-		visuelProjet.css({ //appliquer cette hauteur sur l element
-			'height': hauteur + "px"
-		});
-		listeProjet.css({
-			'height': hauteur + "px"
-		});
-	}
-	//FIN HAUTEUR REALISATIONS
+    const displayHeight = () => {
+        const percentage = 69.6;
+        const visualProject = document.querySelector('.visuel-projet');
+        const listProject = document.querySelectorAll('.realisations ul li');
+        const height = (visualProject.offsetWidth * percentage) / 100;
+        visualProject.style.height = `${height}px`;
+        listProject.forEach(element => element.style.height = `${height}px`);
+    }
+    //FIN HAUTEUR REALISATIONS
+    
 
 	//DEBUT MENU ORDI/TABLETTE
 	function positionMenu() {
@@ -89,7 +83,7 @@ $(document).ready(function() {
 	$(window).scroll(function() {
 		var aproposcompetences = $(".aproposcompetences");
 		var accueilparallax = $(".accueilparallax");
-		appliquerHauteur();
+        displayHeight();
 		positionMenu();
 
 		if(accueilparallax.hasClass("active")) {
