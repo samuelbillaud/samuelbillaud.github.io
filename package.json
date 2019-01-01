@@ -6,7 +6,7 @@
   "author": "<samuel.billaud1990@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel watch index.html",
+    "dev": "parcel index.html",
     "build": "parcel build index.html"
   }
 }
