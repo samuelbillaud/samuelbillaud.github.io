@@ -33,52 +33,6 @@ $(document).ready(function() {
     });
     //FIN BOUTON-MENU SMARTPHONE
 
-	//DEBUT COMPETENCES
-		//CALCUL POUR QUE LA LARGEUR DES SPAN SOIT EGALE A LA LARGEUR DE L'ELEMENT BARRES
-	var largeur_barres = $(".barres").css("width");
-	
-	var largeur_span = $(".barres .barre span");
-	largeur_span.css({
-		'width' : largeur_barres
-	});
-		//FIN
-
-		//CALCUL POUR QUE LA LARGEUR DES ELEMENTS BARRE POSITIVE ET NEGATIVE SOIT CALCULÉS EN FONCTION DU POURCENTAGE DE CHAQUES COMPETENCES
-	var competencechargee = true;
-
-	$(this).find(".barre.positive").css({
-		'width' : 0 + '%'
-	});
-	$(this).find(".barre.negative").css({
-		'width' : ('100' - 0) + '%'
-	});
-		//FIN
-
-		//FONCTION CHARGEMENT DES COMPETENCES
-	function chargementCompetences() {
-		if (competencechargee) {
-			$(".barres").each(function(i) {
-				var index = $(".barres").eq();
-				var pourcentage = $(this).data("pourcentage");
-				//console.log(pourcentage);
-
-				$(this).find('.barre.positive').animate({
-					'width' : pourcentage + '%'
-				}, 4000, function() {
-					//$(emplacementPourcentage).css("display", "block");	
-				});
-				
-				$(this).find('.barre.negative').animate({
-					'width' : ('100' - pourcentage) + '%'
-				}, 4000, function() {
-					//$(emplacementPourcentage).css("display", "block");
-				});
-				competencechargee = false;
-			});
-		}
-	}
-	//FIN COMPETENCES	
-
 	//DEBUT PARALLAX SECTION ACCUEIL
 	function parallaxAccueil() {
 		var positionScroll = $(this).scrollTop();
@@ -142,11 +96,6 @@ $(document).ready(function() {
 		
 		appliquerHauteur();
 		positionMenu();
-		// activeSection();
-
-		if(aproposcompetences.hasClass("active")) {
-			chargementCompetences();
-		}
 
 		if(accueilparallax.hasClass("active")) {
 			parallaxAccueil();
