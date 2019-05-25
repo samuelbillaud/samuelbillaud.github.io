@@ -1,8 +1,13 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
     const home = document.querySelector('.accueil');
     const homeLink = document.querySelector('.accueil a');
     const menuItems = document.querySelectorAll('nav ul li a');
     const elementToScroll = [homeLink, ...menuItems];
+
+    const sections = [...document.querySelectorAll('.wrapper section')];
+    const homeParallax = document.querySelector('.accueilparallax');
+    const aboutSkills = document.querySelector('.aproposcompetences');
+    const header = document.querySelector('header');
 
     elementToScroll.forEach(element => {
         const anchorName = element.getAttribute("data-menuanchor");
@@ -42,52 +47,82 @@ $(document).ready(function() {
     }
     //FIN PARALLAX SECTION ACCUEIL
 
+    //DEBUT COMPETENCES
+    const loadSkills = () => {
+        document.querySelectorAll('.barres .barre span').forEach(element => {
+            element.style.width = `${document.querySelector('.barres').offsetWidth}px`;
+        });
+
+        document.querySelectorAll('.barres').forEach(element => {
+            const percentage = parseFloat(element.getAttribute('data-pourcentage'));
+            element.querySelector('.positive').style.width = `${percentage}%`;
+            element.querySelector('.negative').style.width = `${100 - percentage}%`;
+        });
+    }
+    //FIN COMPETENCES
+
 	//DEBUT HAUTEUR REALISATIONS
     const displayHeight = () => {
         const percentage = 69.6;
-        const visualProject = document.querySelector('.visuel-projet');
+        const visualProject = document.querySelectorAll('.visuel-projet');
         const listProject = document.querySelectorAll('.realisations ul li');
-        const height = (visualProject.offsetWidth * percentage) / 100;
-        visualProject.style.height = `${height}px`;
+
+        const height = (visualProject[0].offsetWidth * percentage) / 100;
+        visualProject.forEach(element => element.style.height = `${height}px`);
         listProject.forEach(element => element.style.height = `${height}px`);
     }
     //FIN HAUTEUR REALISATIONS
-    
+
+    // DEBUT METTRE UNE SECTION ACTIVE
+    const isActivedSection = element => element.classList.contains('active');
+
+    const getTopPosition = element => element.offsetTop;
+    const getBottomPosition = element => getTopPosition(element) + element.offsetHeight;
+
+    const getAllPosition = element => ({
+        top: getTopPosition(element),
+        bottom: getBottomPosition(element),
+    });
+
+    const sectionsPositions = sections
+        .map(element => getAllPosition(element));
+
+    const getSelectedSectionIndex = () => sectionsPositions.findIndex(element =>
+        (window.scrollY >= element.top) && (window.scrollY < element.bottom));
+
+    const activeSection = index => {
+        const activeElement = [...menuItems].find(element => element.classList.contains('active'));
+        const elementToActivate = [...menuItems][index];
+        if (!isActivedSection(elementToActivate)) {
+            activeElement.classList.remove('active');
+            elementToActivate.classList.add('active');
+        }
+    }
+    // DEBUT METTRE UNE SECTION ACTIVE
 
 	//DEBUT MENU ORDI/TABLETTE
-	function positionMenu() {
-		positionFenetre = $(window).scrollTop();
-		bottomOfOpening = $('.accueil').position().top + $('.accueil').height();
-		windowHeight = $(window).height();
-		compareWindowHeight = ( windowHeight - 70 ) + "px";
-		header = $('header');
+    const getPositionMenu = () => (
+        (home.offsetTop + home.offsetHeight) > window.scrollY
+            ? 'absolute'
+            : 'fixed'
+    );
 
-		if (bottomOfOpening > positionFenetre) {
-			header.css({
-				'display' : 'none',
-				'position' : 'absolute',
-				'top' : '100%',
-				'left' : '0'
-			});
-		} else {
-			header.css({
-				'display' : 'block',
-				'position' : 'fixed',
-				'top' : '0',
-				'left' : '0'
-			});
-		}
-	}
+    const positionMenu = () => {
+        const className = `position-${getPositionMenu()}-menu`;
+        if (!header.classList.contains(className)) {
+            header.classList.remove(...header.classList);
+            header.classList.add(className);
+        }
+    };
 	//FIN MENU ORDI/TABLETTE
 
-	$(window).scroll(function() {
-		var aproposcompetences = $(".aproposcompetences");
-		var accueilparallax = $(".accueilparallax");
-        displayHeight();
-		positionMenu();
+    displayHeight();
 
-		if(accueilparallax.hasClass("active")) {
-            parallaxHome();
-		}
-	});
+    window.addEventListener('scroll', () => {
+        activeSection(getSelectedSectionIndex());
+        positionMenu();
+
+        if (isActivedSection(homeParallax)) parallaxHome();
+        if (isActivedSection(aboutSkills)) loadSkills();
+    });
 });
