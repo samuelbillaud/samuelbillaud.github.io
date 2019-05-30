@@ -87,8 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sectionsPositions = sections
         .map(element => getAllPosition(element));
 
-    const getSelectedSectionIndex = () => sectionsPositions.findIndex(element =>
-        (window.scrollY >= element.top) && (window.scrollY < element.bottom));
+    const getSelectedSectionIndex = () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight)
+            return sections.length - 1;
+
+        return sectionsPositions.findIndex(element =>
+            ((window.scrollY >= element.top) && (window.scrollY < element.bottom))
+        );
+    }
 
     const activeSection = index => {
         const activeElement = [...menuItems].find(element => element.classList.contains('active'));

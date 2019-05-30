@@ -214,6 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   var getSelectedSectionIndex = function getSelectedSectionIndex() {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) return sections.length - 1;
     return sectionsPositions.findIndex(function (element) {
       return window.scrollY >= element.top && window.scrollY < element.bottom;
     });
@@ -286,7 +287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64758" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60894" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
